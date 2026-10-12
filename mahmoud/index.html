@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المرام للخدمات - توريد عمال النظافة والبوفيه</title>
+    <!-- استيراد خط عربي أنيق -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: #f9fbfd;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* الهيدر وشريط التنقل */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-area img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .logo-area h1 {
+            font-size: 22px;
+            color: #0b3c5d;
+            font-weight: 800;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #0b3c5d;
+        }
+        .cta-btn {
+            background: #0b3c5d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .cta-btn:hover {
+            background: #1d2731;
+        }
+
+        /* القسم الرئيسي (Hero Section) */
+        .hero {
+            background: linear-gradient(135deg, rgba(11,60,93,0.9), rgba(29,39,49,0.8)), url('logo.png') center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            padding: 0 20px;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn-primary {
+            background: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-secondary:hover {
+            background: white;
+            color: #0b3c5d;
+        }
+
+        /* قسم خدماتنا */
+        .services {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 32px;
+            color: #0b3c5d;
+            font-weight: 800;
+        }
+        .section-title p {
+            color: #777;
+            margin-top: 10px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: #fdfdfd;
+            border: 1px solid #eaeaea;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: #0b3c5d;
+        }
+        .service-card i {
+            font-size: 45px;
+            color: #0b3c5d;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* لماذا تختارنا */
+        .features {
+            background: #f4f7f6;
+            padding: 80px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-item {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+        .feature-item i {
+            font-size: 35px;
+            color: #25d366;
+            margin-bottom: 15px;
+        }
+        .feature-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #0b3c5d;
+        }
+
+        /* قسم اتصل بنا */
+        .contact {
+            padding: 80px 0;
+            background: #ffffff;
+            text-align: center;
+        }
+        .contact-box {
+            background: #0b3c5d;
+            color: white;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(11,60,93,0.3);
+        }
+        .contact-box h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        .contact-box p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+        .contact-phone {
+            font-size: 28px;
+            font-weight: bold;
+            color: #25d366;
+            text-decoration: none;
+            display: inline-block;
+            background: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* الفوتر */
+        footer {
+            background: #1d2731;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <img src="logo.png" alt="شعار المرام للخدمات">
+                <h1>المرام للخدمات</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#features">لماذا نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <a href="tel:01006100978" class="cta-btn">اتصل بنا الآن</a>
+        </div>
+    </header>
+
+    <!-- واجهة البداية -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2>شركة المرام للخدمات المؤسسية</h2>
+            <p>شريكك الموثوق لتوفير أحدث وأعلى كفاءة لعمال النظافة وخدمات البوفيه للشركات، المكاتب، والمؤسسات الكبرى.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/201006100978" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> تواصل عبر الواتساب</a>
+                <a href="#services" class="btn-secondary">استكشف خدماتنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>خدماتنا الاحترافية</h2>
+            <p>نلبي احتياجات الشركات بأعلى معايير الجودة والاحترافية</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-broom"></i>
+                <h3>خدمات النظافة العامة</h3>
+                <p>توفير طاقم عمال نظافة مدرب، مجهز، ومزود بأحدث الأدوات لضمان بيئة عمل نظيفة وراقية لشركتك.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-coffee"></i>
+                <h3>خدمات البوفيه والضيافة</h3>
+                <p>عمال بوفيه على أعلى مستوى من المظهر المشرف واللباقة لخدمة الإدارة، الموظفين، والعملاء والضيوف.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-building"></i>
+                <h3>عقود سنوية وشهرية</h3>
+                <p>نوفر حلولاً مرنة وعقوداً تتناسب مع طبيعة عمل الشركات والمؤسسات وبأسعار تنافسية للغاية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- لماذا تختارنا -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>لماذا تختار شركة المرام؟</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-user-shield"></i>
+                <h4>عمالة مؤمنة وموثوقة</h4>
+                <p>جميع العاملين لدينا يخضعون لاختبارات دقيقة لضمان الأمانة والكفاءة.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-clock"></i>
+                <h4>التزام بالمواعيد</h4>
+                <p>نحرص تماماً على الالتزام بساعات العمل والحضور المنتظم.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <h4>متابعة وإشراف مستمر</h4>
+                <p>لدينا مشرفون لمتابعة جودة الأداء وضمان رضا العملاء التام.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h2>جاهزون لتطوير بيئة عمل شركتك؟</h2>
+            <p>تواصل معنا الآن واحصل على أفضل عروض الأسعار المخصصة لمؤسستك</p>
+            <a href="tel:01006100978" class="contact-phone"><i class="fas fa-phone-alt"></i> 01006100978</a>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع حقوق الطبع والنشر محفوظة © 2026 شركة المرام للخدمات.</p>
+    </footer>
+
+</body>
+</html>
